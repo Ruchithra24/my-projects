@@ -1,0 +1,31 @@
+{% load static %}
+ <!-- Header Section -->
+   <header class="header">
+     <div class="container container--narrow">
+       <a href="/" class="header__logo">
+         
+       </a>
+       <nav class="header__nav">
+         <input type="checkbox" id="responsive-menu" />
+         <label for="responsive-menu" class="toggle-menu">
+           <span>Menu</span>
+           <div class="toggle-menu__lines"></div>
+         </label>
+         <ul class="header__menu">
+           <li class="header__menuItem"><a href="{% url 'Users:all-profile' %}">Developers</a></li>
+           <li class="header__menuItem"><a href="{% url 'firstapp:project1' %}">Projects</a></li>
+         
+           
+           {% if request.user.is_authenticated %}
+           <li class="header__menuItem"><a href="{% url 'firstapp:create-project' %}">Add Project</a></li>
+           <li class="header__menuItem"><a href="{% url 'Users:account' %}">My Account</a></li>
+           <li class="header__menuItem"><a href="{% url 'Users:inbox' %}">Inbox</a></li>
+           <li class="header__menuItem"><a href="{% url 'Users:logout' %}"class="btn btn--sub">Logout</a></li>
+           
+           {% else %}
+           <li class="header__menuItem"><a href="{% url 'Users:login' %}" class="btn btn--sub">Login/Sign Up</a></li>
+           {% endif %}
+          </ul>
+       </nav>
+     </div>
+   </header>

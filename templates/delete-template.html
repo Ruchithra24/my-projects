@@ -1,0 +1,30 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+
+
+
+
+<main class="formPage my-xl">
+    <div class="content-box">
+        <div class="formWrapper">
+            <a class="backButton" href="{% url 'Users:account' %}"><i class="im im-angle-left"></i></a>
+            <br>
+
+            <form class="form" action="" method="POST">
+               
+                {% csrf_token %}
+                <p>
+                    Are You sure you want to delete{{object.title}}?
+                </p>
+              
+
+               
+                <input class="btn btn--sub btn--lg  my-md" type="submit" value="Delete" />
+                <a class="btn btn--sub btn--lg  my-md" href="{{request.GET.next}}">Go Back</a>
+            </form>
+        </div>
+    </div>
+</main>
+{% endblock %}
